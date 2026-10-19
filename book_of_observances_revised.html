@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#eee5d2">
+ <title>The Book of Observances</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+ --paper:#eee5d2;
+ --paper2:#e5d9c1;
+ --ink:#302d25;
+ --muted:#716b5d;
+ --rule:#b9ad95;
+ --red:#783e35;
+ --red2:#a36d5a;
+ --white:rgba(255,252,243,.46);
+ --serif:Georgia,'Times New Roman',serif;
+ --sans:'Palatino Linotype',Palatino,serif;
+}
+* {
+ box-sizing:border-box
+}
+html {
+ scroll-behavior:smooth
+}
+body {
+ margin:0;
+ background:var(--paper);
+ color:var(--ink);
+ font-family:var(--sans);
+ font-size:16px;
+ line-height:1.7;
+ background-image:radial-gradient(ellipse at 12% 4%,rgba(255,255,255,.38),transparent 38%),radial-gradient(ellipse at 92% 80%,rgba(137,111,75,.07),transparent 40%)
+}
+a {
+ color:inherit
+}
+button {
+ font:inherit;
+ color:inherit
+}
+.frame {
+ max-width:1180px;
+ margin:auto;
+ padding:0 42px
+}
+.topline {
+ height:8px;
+ background:var(--red)
+}
+header {
+ border-bottom:1px solid var(--rule)
+}
+.masthead {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:24px;
+ padding:23px 0 20px
+}
+.brand {
+ font-family:var(--serif);
+ font-size:14px;
+ letter-spacing:.16em;
+ text-transform:uppercase;
+ text-decoration:none
+}
+.brand span {
+ display:block;
+ font-family:var(--sans);
+ font-size:10px;
+ letter-spacing:.18em;
+ color:var(--muted);
+ margin-top:2px
+}
+.edition {
+ font-size:10px;
+ letter-spacing:.14em;
+ text-transform:uppercase;
+ color:var(--muted);
+ text-align:right
+}
+.nav {
+ display:flex;
+ flex-wrap:wrap;
+ gap:0;
+ border-top:1px solid var(--rule)
+}
+.nav button {
+ border:0;
+ background:transparent;
+ padding:12px 17px 12px 0;
+ margin-right:24px;
+ font-size:12px;
+ letter-spacing:.08em;
+ text-transform:uppercase;
+ cursor:pointer;
+ color:var(--muted);
+ border-bottom:2px solid transparent
+}
+.nav button:hover,.nav button.active {
+ color:var(--red);
+ border-bottom-color:var(--red)
+}
+main {
+ min-height:72vh
+}
+.eyebrow {
+ font-size:10px;
+ letter-spacing:.19em;
+ text-transform:uppercase;
+ color:var(--red);
+ font-weight:bold
+}
+.hero {
+ padding:70px 0 56px;
+ display:grid;
+ grid-template-columns:minmax(0,1.3fr) minmax(230px,.7fr);
+ gap:70px;
+ align-items:end
+}
+.hero h1 {
+ font:normal clamp(44px,6vw,76px)/.99 var(--serif);
+ letter-spacing:-.045em;
+ margin:18px 0 23px;
+ max-width:740px
+}
+.hero .dek {
+ font:italic 21px/1.5 var(--serif);
+ max-width:630px;
+ color:#514b40;
+ margin:0
+}
+.seal {
+ border-left:1px solid var(--rule);
+ padding:8px 0 8px 26px;
+ color:var(--muted);
+ font-size:13px
+}
+.seal strong {
+ display:block;
+ font:normal 19px/1.3 var(--serif);
+ color:var(--ink);
+ margin:8px 0 12px
+}
+.seal .number {
+ font:normal 52px/1 var(--serif);
+ color:var(--red2)
+}
+.intro-grid {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:70px;
+ padding:32px 0 60px;
+ border-top:1px solid var(--rule)
+}
+h2 {
+ font:normal 32px/1.15 var(--serif);
+ letter-spacing:-.02em;
+ margin:10px 0 18px
+}
+h3 {
+ font:normal 22px/1.25 var(--serif);
+ margin:0 0 8px
+}
+p {
+ margin:0 0 15px
+}
+.smallnote {
+ font-size:13px;
+ color:var(--muted)
+}
+.section-head {
+ display:flex;
+ justify-content:space-between;
+ align-items:baseline;
+ gap:20px;
+ border-bottom:1px solid var(--rule);
+ padding-bottom:14px;
+ margin-bottom:0
+}
+.section-head .count {
+ font-size:11px;
+ letter-spacing:.12em;
+ text-transform:uppercase;
+ color:var(--muted)
+}
+.category-list {
+ border-top:1px solid var(--rule)
+}
+.category {
+ display:grid;
+ grid-template-columns:64px minmax(0,1fr) 180px;
+ gap:22px;
+ padding:25px 0 27px;
+ border-bottom:1px solid var(--rule);
+ align-items:start
+}
+.category .num {
+ font:normal 29px/1 var(--serif);
+ color:var(--red2);
+ padding-top:4px
+}
+.category h3 a {
+ text-decoration:none
+}
+.category h3 a:hover {
+ color:var(--red)
+}
+.category .description {
+ color:#5e584c;
+ max-width:660px;
+ font-size:14px
+}
+.category .meta {
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:.12em;
+ color:var(--muted);
+ text-align:right;
+ padding-top:8px
+}
+.text-link {
+ display:inline-block;
+ text-decoration:none;
+ border-bottom:1px solid var(--red2);
+ color:var(--red);
+ font-size:12px;
+ letter-spacing:.07em;
+ text-transform:uppercase;
+ padding-bottom:2px;
+ margin-top:7px
+}
+.text-link:hover {
+ border-bottom-width:2px
+}
+.closing {
+ padding:43px 0 58px;
+ border-top:1px solid var(--rule);
+ margin-top:44px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:70px
+}
+.closing blockquote {
+ font:italic 24px/1.4 var(--serif);
+ margin:0;
+ color:#554b3d
+}
+.page-head {
+ padding:55px 0 38px;
+ border-bottom:1px solid var(--rule);
+ display:grid;
+ grid-template-columns:minmax(0,1fr) 180px;
+ gap:45px;
+ align-items:end
+}
+.page-head h1 {
+ font:normal clamp(40px,5vw,62px)/1.02 var(--serif);
+ letter-spacing:-.04em;
+ margin:12px 0 17px
+}
+.page-head .dek {
+ font:italic 19px/1.5 var(--serif);
+ color:#5a5347;
+ max-width:700px
+}
+.page-index {
+ border-left:1px solid var(--rule);
+ padding-left:20px;
+ color:var(--muted);
+ font-size:12px
+}
+.page-index b {
+ display:block;
+ font:normal 35px/1 var(--serif);
+ color:var(--red2);
+ margin-bottom:8px
+}
+.page-body {
+ display:grid;
+ grid-template-columns:220px minmax(0,1fr);
+ gap:64px;
+ padding:38px 0 60px
+}
+.side-index {
+ border-right:1px solid var(--rule);
+ padding-right:24px
+}
+.side-index .label {
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:.15em;
+ color:var(--muted);
+ margin-bottom:13px
+}
+.side-index a {
+ display:block;
+ text-decoration:none;
+ font-size:13px;
+ line-height:1.4;
+ padding:9px 0;
+ border-bottom:1px solid rgba(185,173,149,.65)
+}
+.side-index a:hover {
+ color:var(--red)
+}
+.content-section {
+ padding:0 0 34px;
+ margin:0 0 34px;
+ border-bottom:1px solid var(--rule)
+}
+.content-section:last-child {
+ border-bottom:0
+}
+.content-section h2 {
+ font-size:29px
+}
+.content-section p {
+ max-width:760px
+}
+.register {
+ margin-top:22px;
+ border-top:1px solid var(--rule)
+}
+.record-row {
+ display:grid;
+ grid-template-columns:48px minmax(0,1fr) 110px;
+ gap:17px;
+ padding:18px 0;
+ border-bottom:1px solid var(--rule);
+ align-items:start
+}
+.record-row .record-no {
+ font:normal 22px/1.2 var(--serif);
+ color:var(--red2)
+}
+.record-row h3 {
+ font-size:20px
+}
+.record-row p {
+ font-size:13px;
+ color:#625b4f;
+ margin:0;
+ max-width:650px
+}
+.record-row .status {
+ text-align:right;
+ font-size:9px;
+ letter-spacing:.12em;
+ text-transform:uppercase;
+ color:var(--muted);
+ padding-top:6px
+}
+.record-row button {
+ background:none;
+ border:0;
+ border-bottom:1px solid var(--red2);
+ padding:0 0 2px;
+ margin-top:8px;
+ color:var(--red);
+ font-size:11px;
+ letter-spacing:.08em;
+ text-transform:uppercase;
+ cursor:pointer
+}
+.record-row button:hover {
+ border-bottom-width:2px
+}
+.notice {
+ background:rgba(255,252,243,.38);
+ border-left:2px solid var(--red2);
+ padding:17px 21px;
+ margin:20px 0;
+ max-width:760px;
+ font-size:13px
+}
+.notice strong {
+ font-family:var(--serif);
+ font-size:17px;
+ font-weight:normal;
+ display:block;
+ margin-bottom:4px
+}
+.record-detail {
+ display:none;
+ padding:20px 22px;
+ background:rgba(255,252,243,.45);
+ border-bottom:1px solid var(--rule);
+ font-size:13px
+}
+.record-detail.open {
+ display:block
+}
+.record-detail h4 {
+ font:normal 19px var(--serif);
+ margin:0 0 6px
+}
+.record-detail dl {
+ display:grid;
+ grid-template-columns:150px 1fr;
+ gap:7px 16px;
+ margin:15px 0 0
+}
+.record-detail dt {
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:.1em;
+ color:var(--muted)
+}
+.record-detail dd {
+ margin:0;
+ line-height:1.65
+}
+.record-detail li {
+ margin:0 0 7px
+}
+.record-detail a {
+ color:var(--red)
+}
+.colophon {
+ padding:27px 0 35px;
+ border-top:1px solid var(--rule);
+ display:flex;
+ justify-content:space-between;
+ gap:20px;
+ font-size:10px;
+ letter-spacing:.12em;
+ text-transform:uppercase;
+ color:var(--muted)
+}
+.colophon strong {
+ font-weight:normal;
+ color:var(--red)
+}
+.back {
+ display:inline-block;
+ margin-top:20px;
+ font-size:11px;
+ text-transform:uppercase;
+ letter-spacing:.1em;
+ color:var(--red);
+ text-decoration:none;
+ border-bottom:1px solid var(--red2)
+}
+.mobile-menu {
+ display:none
+}
+@media(max-width:760px) {
+ .frame {
+ padding:0 22px
+ }
+ .masthead {
+ align-items:flex-start
+ }
+ .edition {
+ max-width:120px;
+ font-size:9px
+ }
+ .nav button {
+ font-size:10px;
+ margin-right:15px;
+ padding:11px 0
+ }
+ .hero {
+ padding:48px 0 36px;
+ grid-template-columns:1fr;
+ gap:30px
+ }
+ .hero h1 {
+ font-size:54px
+ }
+ .seal {
+ border-left:0;
+ border-top:1px solid var(--rule);
+ padding:20px 0 0;
+ display:grid;
+ grid-template-columns:60px 1fr;
+ column-gap:15px
+ }
+ .seal .number {
+ grid-row:span 2;
+ font-size:42px
+ }
+ .seal strong {
+ margin:0 0 5px
+ }
+ .intro-grid,.closing {
+ grid-template-columns:1fr;
+ gap:28px
+ }
+ .category {
+ grid-template-columns:37px 1fr;
+ gap:13px
+ }
+ .category .meta {
+ grid-column:2;
+ text-align:left;
+ padding:0
+ }
+ .page-head {
+ grid-template-columns:1fr;
+ gap:22px;
+ padding-top:42px
+ }
+ .page-index {
+ border-left:0;
+ border-top:1px solid var(--rule);
+ padding:13px 0 0;
+ display:flex;
+ gap:12px;
+ align-items:center
+ }
+ .page-index b {
+ font-size:26px;
+ margin:0
+ }
+ .page-body {
+ grid-template-columns:1fr;
+ gap:28px;
+ padding-top:25px
+ }
+ .side-index {
+ border-right:0;
+ border-bottom:1px solid var(--rule);
+ padding:0 0 20px
+ }
+ .side-index nav {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:0 16px
+ }
+ .record-row {
+ grid-template-columns:32px 1fr;
+ gap:12px
+ }
+ .record-row .status {
+ grid-column:2;
+ text-align:left;
+ padding-top:0
+ }
+ .record-detail dl {
+ grid-template-columns:1fr;
+ gap:3px
+ }
+ .record-detail dd {
+ margin-bottom:9px
+ }
+ .colophon {
+ flex-direction:column;
+ gap:8px
+ }
+ .section-head {
+ align-items:flex-start;
+ flex-direction:column;
+ gap:5px
+ }
+}
+@media(prefers-reduced-motion:reduce) {
+ html {
+ scroll-behavior:auto
+ }
+}
+
+/* A more lived-in archive: paper grain, ink, restrained oxblood, and clear reading rhythm. */
+:root{--paper:#eee6d6;--paper2:#e1d2b8;--ink:#28241f;--muted:#6d6255;--rule:#b7a58a;--red:#6e292e;--red2:#a45e50;--white:rgba(255,252,243,.68);--serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--sans:'EB Garamond',Palatino,serif;--ui:'DM Sans',Arial,sans-serif}
+body{font-family:var(--sans);font-size:18px;line-height:1.72;background-color:var(--paper);background-image:radial-gradient(ellipse at 8% 8%,rgba(255,255,255,.65),transparent 34%),radial-gradient(ellipse at 88% 34%,rgba(112,65,43,.08),transparent 36%),repeating-linear-gradient(0deg,rgba(74,54,35,.018) 0,rgba(74,54,35,.018) 1px,transparent 1px,transparent 5px)}
+.frame{max-width:1240px;padding-left:clamp(20px,4vw,54px);padding-right:clamp(20px,4vw,54px)}
+.topline{height:7px;background:linear-gradient(90deg,#421b20,#873c3e 48%,#c09a68 100%)}
+header{position:sticky;top:0;z-index:30;background:rgba(238,230,214,.94);backdrop-filter:blur(12px);box-shadow:0 8px 25px rgba(48,36,25,.06)}
+.masthead{padding:18px 0 15px}.brand{font-family:var(--ui);font-size:12px;letter-spacing:.2em}.brand span{font-family:var(--ui);font-size:9px;letter-spacing:.18em}.edition{font-family:var(--ui);font-size:9px;letter-spacing:.16em}
+.nav{gap:7px;padding:9px 0 0;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin}.nav button{font-family:var(--ui);white-space:nowrap;padding:10px 13px;margin:0;border:1px solid transparent;border-radius:2px;font-size:10px;letter-spacing:.11em;transition:background .2s,color .2s,border-color .2s}.nav button:hover,.nav button.active{background:var(--red);color:#fff7e8;border-color:var(--red)}
+.hero{position:relative;padding:clamp(45px,7vw,90px) 0 54px;grid-template-columns:minmax(0,1.25fr) minmax(220px,.65fr);gap:clamp(30px,6vw,84px)}.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,var(--red),var(--rule) 55%,transparent)}
+.hero h1{font-size:clamp(54px,7.4vw,96px);line-height:.88;letter-spacing:-.055em;margin:19px 0 28px;text-wrap:balance}.hero .dek,.dek{font-family:var(--serif);font-size:clamp(20px,2.2vw,27px);font-style:normal;line-height:1.35;color:#514438;max-width:650px}
+.eyebrow{font-family:var(--ui);font-size:9px;letter-spacing:.22em;color:var(--red)}h2{font-size:clamp(31px,3.2vw,43px);line-height:1.02;letter-spacing:-.025em}h3{font-size:clamp(23px,2.3vw,29px);line-height:1.08}p{max-width:75ch}.seal{border-left:2px solid var(--red);padding:10px 0 10px 28px;background:linear-gradient(90deg,rgba(110,41,46,.045),transparent);font-size:16px}.seal-kicker{font-family:var(--ui);font-size:9px;letter-spacing:.18em;color:var(--red)}.seal-number{font-family:var(--serif);font-size:74px;line-height:.95;color:var(--red2);margin:12px 0}.seal strong{font-size:26px;line-height:1.05}.seal p{font-size:15px}
+.intro-grid{gap:clamp(32px,6vw,84px);padding:48px 0 70px}.intro-grid>div{position:relative}.intro-grid>div+div{border-left:1px solid var(--rule);padding-left:clamp(20px,3vw,44px)}.notice{border-left:3px solid var(--red2);background:rgba(255,252,243,.45);padding:17px 20px;margin:25px 0;font-size:16px}.notice strong{display:block;font-family:var(--ui);font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:var(--red);margin-bottom:5px}
+.section-head{padding:20px 0 17px;border-bottom:2px solid var(--ink)}.section-head h2{margin-bottom:0}.section-head .count{font-family:var(--ui);font-size:9px;letter-spacing:.15em}.category-list{border-top:0}.category{grid-template-columns:62px minmax(0,1fr) 150px;gap:24px;padding:27px 20px;border-bottom:1px solid var(--rule);transition:background .22s,transform .22s}.category:nth-child(odd){background:rgba(255,252,243,.23)}.category:hover{background:rgba(255,252,243,.65);transform:translateX(3px)}.category .num{font-size:36px;color:var(--red)}.category .description{font-size:16px;line-height:1.5}.category .meta{font-family:var(--ui);font-size:9px;line-height:1.8}.category h3 a{text-decoration:none;text-decoration-color:var(--red2);text-underline-offset:4px}.category h3 a:hover{text-decoration:underline}.text-link{font-family:var(--ui);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red2);padding-bottom:3px}
+.closing{margin-top:56px;padding:45px 0 65px;border-top:1px solid var(--rule);grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,6vw,90px)}.closing blockquote{font:normal clamp(28px,3.4vw,43px)/1.15 var(--serif);color:var(--red);margin:0;max-width:14ch}.closing blockquote:before{content:"❧";display:block;font-size:31px;margin-bottom:18px;color:var(--red2)}
+.page-head{padding:48px 0 36px;border-bottom:1px solid var(--rule);margin-bottom:30px;grid-template-columns:minmax(0,1fr) 115px}.page-head h1{font:500 clamp(43px,6vw,70px)/.95 var(--serif);letter-spacing:-.04em;margin:14px 0 17px}.page-index{border-left:1px solid var(--rule);padding-left:22px}.page-index b{font:normal 64px/.9 var(--serif);color:var(--red)}.page-index span{font-family:var(--ui);font-size:8px;letter-spacing:.13em;line-height:1.6}.page-body{gap:clamp(30px,5vw,72px)}.side-index{top:calc(var(--header-height,145px) + 20px);font-family:var(--ui);font-size:10px}.side-index .label{font-size:9px;letter-spacing:.16em}.side-index a{padding:5px 0;text-decoration:none}.side-index a:hover{color:var(--red);text-decoration:underline;text-underline-offset:3px}.side-index .back{display:inline-block;margin-top:16px;color:var(--red);border-bottom:1px solid var(--rule)}.content-section{padding:0 0 42px;margin-bottom:40px;border-bottom:1px solid var(--rule)}.content-section>h2{margin:11px 0 19px}.content-section p{font-size:18px}.smallnote{font-size:14px;line-height:1.6}.register{border-top:1px solid var(--rule)}.record-row{grid-template-columns:42px minmax(0,1fr) 115px;gap:17px;padding:20px 17px;background:rgba(255,252,243,.28);border-bottom:1px solid var(--rule);transition:background .2s}.record-row:nth-child(4n+1){background:rgba(255,252,243,.53)}.record-row:hover{background:rgba(255,252,243,.78)}.record-no{font:normal 27px/1 var(--serif);color:var(--red)}.record-row h3{font-size:26px;margin-bottom:6px}.record-row p{font-size:16px;line-height:1.45}.record-row button{font-family:var(--ui);font-size:9px;letter-spacing:.13em;text-transform:uppercase;background:transparent;border:0;border-bottom:1px solid var(--red2);padding:5px 0;color:var(--red);cursor:pointer}.record-row button:hover{letter-spacing:.16em}.status{font-family:var(--ui);font-size:8px;letter-spacing:.12em;line-height:1.6}.record-detail{padding:25px 28px 30px 60px;background:rgba(222,207,180,.44);border-left:2px solid var(--red2);margin:0 0 12px}.record-detail h4{font:600 29px/1.1 var(--serif);margin:0 0 9px}.record-detail>p{font-size:18px}.record-detail dl{font-size:15px;grid-template-columns:170px minmax(0,1fr);gap:12px 20px}.record-detail dt{font-family:var(--ui);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);padding-top:3px}.record-detail dd{color:var(--ink);line-height:1.55}.record-detail.open{box-shadow:inset 0 0 0 1px rgba(110,41,46,.13)}
+footer{padding-top:23px!important;padding-bottom:110px!important;font-family:var(--ui);font-size:9px;letter-spacing:.13em}.colophon strong{color:var(--red)}
+.page-dock{position:fixed;z-index:40;left:50%;bottom:14px;transform:translateX(-50%);width:min(920px,calc(100% - 28px));display:flex;align-items:center;justify-content:center;gap:7px;padding:8px;background:rgba(40,31,28,.94);border:1px solid rgba(221,190,143,.55);box-shadow:0 10px 35px rgba(34,24,20,.25);backdrop-filter:blur(12px);border-radius:4px}.page-dock button{font-family:var(--ui);font-size:9px;letter-spacing:.08em;padding:11px 14px;border:1px solid rgba(238,230,214,.22);background:transparent;color:#f4e9d6;cursor:pointer;white-space:nowrap}.page-dock button:hover:not(:disabled){background:#f4e9d6;color:#342624}.page-dock .dock-register{border-color:#b88667;color:#f1cda7}.page-dock .dock-primary{background:#782f35;border-color:#782f35}.page-dock button:disabled{opacity:.38;cursor:default}.page-dock .dock-top{margin-left:auto}
+button:focus-visible,a:focus-visible{outline:2px solid #a45e50;outline-offset:3px}
+@media(max-width:760px){body{font-size:17px}.masthead{gap:12px}.edition{max-width:115px}.nav{margin:0 -2px}.nav button{font-size:9px;padding:9px 10px}.hero{grid-template-columns:1fr;gap:26px;padding-top:47px}.hero h1{font-size:clamp(53px,13vw,76px)}.seal{max-width:420px}.intro-grid,.closing{grid-template-columns:1fr;gap:28px}.intro-grid>div+div{border-left:0;border-top:1px solid var(--rule);padding:25px 0 0}.category{grid-template-columns:38px minmax(0,1fr);gap:13px;padding:22px 12px}.category .meta{display:none}.category .num{font-size:29px}.page-head{grid-template-columns:minmax(0,1fr) 65px;gap:16px}.page-index{padding-left:13px}.page-index b{font-size:45px}.page-index span{font-size:7px}.page-body{grid-template-columns:1fr}.side-index{position:static;border-right:0;border-bottom:1px solid var(--rule);padding:0 0 14px;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px 15px}.side-index .label{width:100%}.side-index a{padding:3px 0}.record-row{grid-template-columns:29px minmax(0,1fr);gap:12px;padding:17px 10px}.record-no{font-size:22px}.record-row h3{font-size:23px}.status{display:none}.record-detail{padding:22px 15px}.record-detail dl{grid-template-columns:1fr;gap:4px}.record-detail dd{margin-bottom:12px}.page-dock{bottom:7px;width:calc(100% - 14px);gap:4px;padding:6px}.page-dock button{font-size:8px;padding:10px 7px;letter-spacing:.02em}.page-dock .dock-top{margin-left:0}footer{padding-bottom:90px!important}}
+@media(max-width:420px){.page-dock button{padding:9px 5px;font-size:7px}.dock-secondary{max-width:85px;overflow:hidden;text-overflow:ellipsis}.dock-top{max-width:50px}.edition{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+ <div class="topline">
+ </div>
+ <header>
+ <div class="frame">
+ <div class="masthead">
+ <a href="#home" class="brand" data-page="home">The Book of Observances<span>A compilation of the Keepers</span>
+ </a>
+ <div class="edition">An old record<br>Preserved without addition</div>
+ </div>
+ <nav class="nav" aria-label="Main navigation" id="mainNav">
+ </nav>
+ </div>
+ </header>
+ <main class="frame" id="app" tabindex="-1">
+ </main>
+ <footer class="frame">
+ <div class="colophon">
+ <span>
+ <strong>The Book of Observances</strong> · The Keeper's Archive</span>
+ <span>Names unrecorded · Accounts preserved</span>
+ </div>
+ </footer>
+<div class="page-dock" id="pageDock" aria-label="Page navigation">
+ <button type="button" id="prevPage" class="dock-secondary">Previous division</button>
+ <button type="button" data-page="home" class="dock-register">The Register</button>
+ <button type="button" id="nextPage" class="dock-primary">Next division</button>
+ <button type="button" id="toTop" class="dock-top" aria-label="Back to top">↑ Top</button>
+</div>
+
+<script>
+const categories=[
+{id:'healing',num:'I',name:'Healing and Restoration',short:'The return of what has been weakened, disturbed, or lost.',dek:'Observances concerned with recovery, renewal, and the restoration of spiritual condition.',intro:'This division gathers accounts of observances undertaken when spiritual strength has diminished, balance has been disturbed, or a person’s awareness and abilities have been impaired. The records describe practices intended to restore what can be restored, and distinguish those conditions for which the outcome remains uncertain.',scope:'The accounts are arranged by the condition an observance is meant to address, rather than by the Spiritual Houses in which it is practised. Similar purposes do not necessarily indicate identical methods. Requirements, participants, materials, and limits belong to each individual record.',subjects:[
+['Restoration of spiritual strength','Observances recorded for states of spiritual exhaustion, depletion, or diminished capacity.'],
+['Restoration of spiritual balance','Practices associated with a spiritual condition understood to have fallen out of balance.'],
+['Recovery from spiritual afflictions','Accounts concerning recovery from spiritual disturbances or afflictions.'],
+['Restoration of awareness and ability','Records involving disturbed spiritual awareness, impaired abilities, or damaged spiritual connections.'],
+['Recovery following an observance','Accounts of lingering effects after an observance, including cases in which the intended result was incomplete.'],
+['Restoration following spiritual intrusion','Records concerning recovery after an unwanted spiritual entity or intrusion, including weakened or severed bonds.']],note:'A record of intended restoration is not proof that restoration will always occur. Where no failure is known, the archive says so only as far as the surviving accounts permit.'},
+{id:'protection',num:'II',name:'Protection and Preservation',short:'The keeping safe of persons, places, bonds, and spiritual conditions.',dek:'Observances concerned with guarding, maintaining, and preserving against spiritual harm or disruption.',intro:'This division gathers accounts of observances undertaken to protect what is considered vulnerable, to preserve an existing condition, or to maintain a boundary against disturbance. The record attends to what an observance is meant to safeguard, the circumstances in which protection is sought, and the limits that have been observed.',scope:'Protection is not treated as a single method or a guarantee of safety. The form and reach of an observance are recorded separately in each account, where known. A practice that guards one person, place, or bond should not be assumed to serve another purpose without evidence.',subjects:[['Protection of persons','Observances intended to guard an individual against spiritual danger or disturbance.'],['Safeguarding places','Records concerning the protection or preservation of a dwelling, site, or place of spiritual importance.'],['Preservation of spiritual bonds','Practices intended to maintain a connection, allegiance, or bond against disruption.'],['Warding and boundaries','Accounts of observances that establish or maintain a spiritual boundary.'],['Continuance of protection','Records concerning the renewal, duration, or maintenance of an existing protection.'],['Limits and breaches','Accounts of protections that weakened, were crossed, or did not produce a known result.']],note:'The existence of a protective observance does not establish the extent of its protection. Each account must be read according to its recorded purpose and evidence.'},
+{id:'communion',num:'III',name:'Communion and Invocation',short:'The seeking of contact, response, or presence beyond the self.',dek:'Observances concerned with calling, addressing, or seeking communion with spiritual entities.',intro:'This division gathers accounts of observances through which practitioners seek to address, call upon, or enter communion with a spiritual entity. The records distinguish the intended recipient, the purpose of the approach, and what—if anything—was observed in response.',scope:'An invocation is not, by itself, evidence of an answer. The archive records reported signs and outcomes without treating expectation as confirmation. Where the identity of an entity, the nature of a response, or the success of an observance remains uncertain, that uncertainty is retained.',subjects:[['Invocation and calling','Accounts of observances intended to call or address a spiritual entity.'],['Seeking communion','Practices intended to establish or enter a form of spiritual communication.'],['Requests and petitions','Observances through which a practitioner seeks aid, permission, guidance, or intervention.'],['Receiving a response','Records concerning signs interpreted as answers, including the limits of such interpretations.'],['Witness and mediation','Accounts in which another person, role, or spiritual intermediary is involved.'],['Silence and uncertain outcomes','Records where no response was observed, or where the outcome could not be established.']],note:'The archive distinguishes what a practitioner sought, what witnesses observed, and what later accounts concluded. These are not always the same.'},
+{id:'passage',num:'IV',name:'Passage and Transition',short:'The marking of thresholds, departures, and changes of state.',dek:'Observances associated with crossing from one condition, status, or stage into another.',intro:'This division gathers accounts of observances connected with passage: moments in which a person, bond, or condition is understood to cross a threshold or undergo a significant change. Such records may concern preparation, the passage itself, or the recognition of a transition after it has occurred.',scope:'The archive does not assume that every transition follows the same order or carries the same meaning across the Spiritual Houses. Each record preserves the tradition and circumstances observed, while leaving unrecorded what cannot be established from surviving accounts.',subjects:[['Preparation for passage','Observances performed before a recognised transition or crossing.'],['Rites of transition','Accounts of practices marking a change of state, standing, or spiritual condition.'],['Crossing thresholds','Records associated with boundaries between places, conditions, or stages.'],['Departure and separation','Observances connected with leaving, parting, or the ending of a former state.'],['Arrival and recognition','Practices through which a transition or new condition is acknowledged.'],['Interrupted or uncertain passage','Accounts in which a transition was delayed, incomplete, or not clearly understood.']],note:'The word “passage” follows the terminology of the recorded tradition. It does not, on its own, establish what lies beyond a threshold or what a transition will bring.'},
+{id:'reconciliation',num:'V',name:'Reconciliation and Release',short:'The mending of division and the loosening of what remains bound.',dek:'Observances concerned with restoring accord, easing a bond, or bringing a spiritual matter to its close.',intro:'This division gathers accounts of observances intended to address spiritual discord, restore a damaged accord, release a bond, or bring an unresolved condition to an end. The records preserve the stated purpose of each practice without assuming that reconciliation, release, and separation are interchangeable outcomes.',scope:'An observance may seek repair, closure, or release, and these purposes need not produce the same result. Where an account does not establish whether a bond was restored, loosened, or ended, the record leaves that distinction unresolved.',subjects:[['Restoring accord','Practices intended to address a spiritual disagreement or restore a disrupted relationship.'],['Mending damaged bonds','Accounts concerning a spiritual connection understood to have been strained or harmed.'],['Release from a bond','Observances intended to loosen or end a binding connection.'],['Resolution of lingering influence','Records concerning the easing or conclusion of an ongoing spiritual effect.'],['Closure and completion','Practices marking the conclusion of an unresolved spiritual matter.'],['Failed or incomplete reconciliation','Accounts in which accord or release was not achieved, or the result remains unknown.']],note:'A record of intended release does not establish that every bond can be ended, just as an attempt at reconciliation does not establish that accord was restored.'},{id:'forbidden',num:'VI',name:'The Forbidden and the Final',short:'Observances whose price may exceed the life or freedom of the one who undertakes them.',dek:'Accounts of binding, severance, succession, and offerings whose consequences cannot always be recalled or undone.',intro:'This division preserves accounts approached only when ordinary observances are judged insufficient. They concern claims made upon the living, the transfer or severance of spiritual bonds, offerings addressed to entities beyond the self, and acts whose price may fall upon the practitioner, their descendants, or those bound to them. Some were forbidden by the Order; others remain in the register because prohibition alone did not erase their use.',scope:'These observances are not interchangeable forms of sacrifice. Their costs differ: a life may be surrendered, a name lost, a bond made permanent, a succession altered, or an obligation passed to another. The Keepers preserve precedent and consequence; their record is not permission to undertake what it describes.',subjects:[['The Bloodbound Succession','An observance concerning the transfer of a spiritual claim through bloodline, inheritance, or succession.'],['The Covenant of the Living Seal','A binding between a living person and a spiritual entity, carrying obligations that cannot be dismissed as a spoken vow.'],['The Severance of Names','An attempt to cut a spiritual entity’s claim over a person, with a cost that may reach beyond the bond itself.'],['The Unanswered Offering','An offering made to obtain a response from a spiritual entity; silence does not mean the offering has gone unclaimed.'],['The Vigil of the Unclaimed Dead','An observance for the dead whose obligations remain unsettled, sometimes placing a living witness under the same claim.'],['The Rite Without Return','A class of irreversible observances in which the price may be life, identity, spiritual freedom, or the future of another person.']],note:'The survival of an account does not make an observance lawful. Several records preserve disputed testimony, incomplete outcomes, or consequences that reached beyond those who first accepted the cost.'}
+];
+const observanceRecords = {"healing":[{"title":"The Returning Breath","purpose":"A restorative observance for a person whose spiritual strength has been depleted by grief, prolonged exertion, or a demanding ritual.","who":"A trained Keeper or recognised household practitioner; the person receiving the observance must consent and remain able to rest.","materials":"A bowl of clean water, an unlit lamp, a plain cloth, and a quiet room. No rare ingredient is required.","procedure":"The practitioner asks the person what they wish to regain, washes their own hands, and places the bowl between them. Three measured pauses are kept in silence; the person then names one ordinary task they feel ready to return to. The lamp is lit only after the conversation, as a sign of renewed intention.","signs":"The tradition regards a calm return to ordinary activity as encouraging, not as proof of supernatural change. Witnesses may record improved steadiness, no noticeable change, or an uncertain result.","variants":"Some Spiritual Houses use a shared spoken blessing; others keep the pauses silent. The record does not prescribe a fixed prayer.","failure":"No immediate change is recorded in several accounts. The observance is not repeated in quick succession merely to force a result.","consequences":"The principal consequence is a formal period of rest and support. The archive warns that spiritual language must not replace ordinary care when a person is ill or exhausted."},{"title":"The Level Vessel","purpose":"A practice intended to restore balance when a person describes their spiritual condition as scattered, uneven, or difficult to govern.","who":"A Keeper trained in listening and observation, with one willing participant.","materials":"A shallow vessel, water, two smooth stones, and a level surface.","procedure":"The stones are placed on opposite sides of the vessel. The participant describes what feels unsettled; the practitioner moves neither stone until the account is finished. The vessel is then set level and the participant chooses one manageable action to bring order to the coming day.","signs":"The water remaining still is treated as a visual metaphor, not a divination. The recorded outcome is the participant’s own account of whether the exercise clarified their next step.","variants":"In some regions, a second witness keeps the account; elsewhere, the ritual is private.","failure":"If the participant finds the symbolism distressing or unhelpful, the practice ends without interpretation.","consequences":"No status is lost through an inconclusive result. Sometimes, balance is sought but not established."},{"title":"The Quiet Lamp","purpose":"A supportive ritual for recovery after a prolonged spiritual affliction, especially when the person feels overwhelmed by attention or repeated questioning.","who":"One trusted practitioner and the person receiving support; additional witnesses are excluded unless invited.","materials":"A lamp or candle used safely, a chair, and a written record kept only with permission.","procedure":"The room is made quiet. The practitioner explains each step before beginning and asks permission before lighting the lamp. The participant may speak, remain silent, or stop the ritual at any time. At its close, the lamp is extinguished and a practical plan for rest or companionship is agreed.","signs":"The sign sought is not a vision or dramatic event but whether the participant feels able to choose what happens next. The archive records their words without embellishment.","variants":"Some Spiritual Houses use a window lamp instead of an open flame; others use a symbolic light with no flame.","failure":"A participant who feels worse may end the ritual immediately. No claim is made that distress proves an affliction is present.","consequences":"The record calls for privacy and follow-up by trusted people. It forbids public display of another person’s suffering as evidence of a Keeper’s power."},{"title":"The Unknotted Thread","purpose":"An observance for people who believe a spiritual connection has become strained or difficult to understand.","who":"A practitioner and the person concerned; another party participates only by invitation.","materials":"A length of ordinary thread and a page on which the participant may write or draw.","procedure":"The participant ties a loose knot while naming what they can describe with confidence. They then identify what remains uncertain. The knot is loosened—not cut—while the practitioner repeats the distinction between known facts and fears. The thread is kept or discarded by the participant.","signs":"A clearer account of what is known and unknown is the only expected sign. The thread itself is not treated as proof of a spiritual bond.","variants":"A private version uses no witness; a communal version may include a trusted mediator.","failure":"If the connection involves coercion or danger, the archive advises prioritising safety and outside support over reconciliation.","consequences":"The ritual can help organise a narrative but cannot guarantee healing, restore a bond, or establish what another person thinks."},{"title":"The After-Ritual Vigil","purpose":"A period of observation following a demanding observance when its effects have not yet settled.","who":"The original practitioner, a second Keeper when available, and the participant’s chosen support person.","materials":"A dated log, drinking water, and a place to rest.","procedure":"For a defined interval chosen according to the original ritual, the Keepers record sleep, mood as reported, unusual events, and practical disruptions without forcing an explanation. They do not repeat the original ritual during the observation period unless its established rules explicitly require it.","signs":"The sign is a reliable account over time, including ordinary explanations and no change. A single coincidence is not treated as proof.","variants":"The length of the vigil varies by the original ritual; the register leaves it unspecified where no precedent survives.","failure":"If the participant becomes unwell or unsafe, ordinary medical or emergency help takes priority over completing the record.","consequences":"The archive may classify the outcome as settled, unresolved, or adverse. The record must preserve contradictory witness accounts."},{"title":"The Open Threshold","purpose":"A recovery observance for a person who believes an unwanted spiritual influence has disrupted their sense of safety or belonging.","who":"A trusted Keeper and the participant; the participant chooses whether the door remains open and who is present.","materials":"A clean cloth, a bowl of water, and a clearly marked doorway.","procedure":"The practitioner asks what would help the participant feel in control of the space. The cloth is placed beside the threshold, and the participant chooses whether to cross it, remain where they are, or end the ritual. The water is poured away normally after the session.","signs":"The central sign is restored choice and a clearly agreed boundary, not the appearance or disappearance of an unseen entity.","variants":"Some Spiritual Houses conduct the ritual at a window or garden gate. No single location is universal.","failure":"No practitioner may insist that a person is possessed or contaminated because they feel frightened.","consequences":"The participant may request changes to their room, routine, or company. The record distinguishes subjective relief from any claim of verified spiritual intrusion."}],"protection":[{"title":"The Witnessed Name","purpose":"A protective observance that places a person’s chosen name in a community record so that their safety and welfare are not forgotten.","who":"A Keeper and two witnesses chosen by the person named; minors and vulnerable people require appropriate trusted support.","materials":"A bound register, ink, and a mark chosen by the person.","procedure":"The name is written only with permission. The witnesses state what support they can realistically offer, and the Keeper records the limits of that promise. The entry is reviewed at an agreed time and may be withdrawn when appropriate.","signs":"The sign of completion is a clear record and a workable support agreement, not an invisible shield.","variants":"Some Spiritual Houses keep the register publicly in a sanctuary; others restrict access to appointed Keepers.","failure":"If witnesses cannot fulfil their promises, the entry is corrected rather than left as false assurance.","consequences":"The ritual creates accountability and belonging. It cannot guarantee safety from every harm."},{"title":"The Four Boundaries","purpose":"A ritual for marking the limits of a room, meeting place, or sacred site before an observance begins.","who":"A Keeper responsible for the place and any people whose access may be affected.","materials":"Four small stones or markers and a plan of the space.","procedure":"The markers are placed at the agreed limits. The Keeper names what the boundary is for, who may enter, and how permission can be requested. The boundary is then recorded in plain language so no one must rely on an ambiguous sign.","signs":"The record of the boundary and participants’ understanding of it are the indicators of completion.","variants":"Markers may be replaced by knots, chalk, or other locally accepted symbols.","failure":"The ritual is not used to confine a person against their will or to conceal a hazard.","consequences":"The boundary is respected until it is formally changed. A broken marker triggers review, not automatic blame or accusation."},{"title":"The Kept Ember","purpose":"A preservation ritual for an ongoing duty, promise, or communal practice that must be maintained over time.","who":"A Keeper and the next person entrusted with the duty.","materials":"A covered lamp, a written handover note, and a safe substitute symbol where fire is unsuitable.","procedure":"The outgoing Keeper describes the duty, its limits, and any unfinished work. The incoming Keeper repeats the parts they understand and may refuse responsibilities they cannot accept. The light is then covered or replaced by its symbol.","signs":"The ritual is complete when responsibility has been understood and accepted without coercion.","variants":"The ember is metaphorical in Spiritual Houses where an open flame is impractical or unsafe.","failure":"If no successor is ready, the record remains open and the duty is scaled back rather than falsely declared preserved.","consequences":"The handover protects continuity but makes no claim that a vow will remain unbroken by magic."},{"title":"The Quieting of the Gate","purpose":"A warding observance for closing a meeting place after a period of spiritual work.","who":"The Keeper responsible for the place and a second witness when possible.","materials":"A key or door-token and a closing entry in the site log.","procedure":"The Keeper checks that everyone has left voluntarily, confirms that no one is being excluded from a place they have a right to use, and states that the meeting is ended. The door is closed and the time recorded.","signs":"A clear ending and a secure, ordinary space are the signs of completion.","variants":"In outdoor sites, a spoken closing replaces a locked door.","failure":"If a person remains and needs help, the closure pauses until their immediate needs are addressed.","consequences":"The practice distinguishes the end of a ritual from the abandonment of participants."},{"title":"The Returning Mark","purpose":"A renewal practice for a protection whose terms, scope, or responsible Keeper have changed.","who":"The person or group protected and the Keeper responsible for the original record.","materials":"The original entry, a new date, and a fresh mark chosen by those involved.","procedure":"The Keeper reads the old terms aloud, asks what has changed, and replaces only the parts everyone understands and accepts. The new record links to the old one so the history is not erased.","signs":"A consistent, updated record is the sign of renewal.","variants":"Some Spiritual Houses require two witnesses for communal protections; private protections may be witnessed by consent only.","failure":"If the original terms cannot be recovered, the protection is marked uncertain rather than silently renewed.","consequences":"Renewal does not retroactively prove the old protection worked."},{"title":"The Breach Account","purpose":"A review performed when a boundary or protection appears to have failed.","who":"A Keeper not solely responsible for the original protection, plus affected people who choose to contribute.","materials":"The original record, a timeline of events, and space for separate witness accounts.","procedure":"The review begins with what was observed, then separates observations from interpretation. Immediate practical risks are addressed first. The Keeper records possible explanations and any changes agreed upon.","signs":"The sign of completion is an honest account with uncertainty retained where necessary.","variants":"Some Spiritual Houses conduct a private review to protect witnesses; others hold a communal hearing.","failure":"The record must not name a culprit without evidence or treat a breach as proof of betrayal.","consequences":"The protection may be revised, suspended, or retired. The archive preserves the failure so later Keepers can learn from it."}],"communion":[{"title":"The Calling of the Listening Room","purpose":"A formal observance for seeking guidance through prayer, meditation, or a carefully framed appeal to a spiritual entity.","who":"A recognised Keeper and any participants who knowingly consent to the observance.","materials":"A quiet room, a written question, and a time limit agreed in advance.","procedure":"The question is written without demanding a particular answer. Participants sit in silence or use their Spiritual House’s own prayer. At the end, the Keeper records what was actually experienced and separates it from later interpretation.","signs":"A response may be reported, absent, or ambiguous. Silence is an accepted outcome and is not treated as proof of rejection.","variants":"The words used differ by Spiritual House; the archive does not prescribe a universal sacred formula.","failure":"The ritual stops if participants feel pressured to invent a message or agree with a leader’s interpretation.","consequences":"No decision with serious consequences rests solely on an uncertain sign."},{"title":"The First Offering","purpose":"A gratitude observance in which a community dedicates a small, ordinary gift to mark what it has received or hopes to honour.","who":"A Keeper and the people who freely choose to contribute.","materials":"A non-hazardous, locally appropriate offering such as bread, flowers, written thanks, or a crafted object.","procedure":"The offering is named and its meaning explained. The Keeper states whether it will be shared, returned, composted, or kept. No person is required to give beyond their means.","signs":"Completion is marked by the acknowledgement of the gift and its intended meaning, not by a guaranteed supernatural response.","variants":"Some Spiritual Houses share food after the ritual; others use a symbolic object that is not consumed.","failure":"An offering is declined if it is unsafe, coercive, or culturally inappropriate for the place.","consequences":"The record notes the gift and its disposition. It does not claim that giving purchases divine favour."},{"title":"The Petition of Three Questions","purpose":"An observance for asking for guidance when a matter has several possible paths.","who":"The petitioner and a Keeper who helps distinguish the question from the desired answer.","materials":"A page divided into three parts: what is known, what is feared, and what remains to be asked.","procedure":"The petitioner completes the three parts, then offers a prayer or sits in reflection according to their Spiritual House. The Keeper reads the questions back without adding new claims. The petitioner decides what ordinary evidence or advice is needed next.","signs":"The ritual succeeds when the question becomes clearer; it does not require a vision, omen, or immediate answer.","variants":"A group may offer reflections, but the petitioner retains responsibility for the decision.","failure":"A Keeper may not claim exclusive access to the answer or use the ritual to command another person.","consequences":"The page may be revisited later to compare expectations with what actually occurred."},{"title":"The Answering Witness","purpose":"A record-making practice used when a participant believes a sign or message has been received.","who":"The participant and a witness who can listen without dictating the interpretation.","materials":"A dated note recording the exact event, context, and the participant’s interpretation separately.","procedure":"The participant describes the event in their own words. The witness asks what was directly observed and what meaning was assigned afterward. Both accounts are preserved if they differ.","signs":"The sign is documented, not automatically authenticated. Independent evidence may be sought when the claim concerns the outside world.","variants":"Some Spiritual Houses preserve the participant’s account privately; others permit an anonymised entry in the register.","failure":"If the account changes, the earlier version remains attached rather than erased.","consequences":"The practice protects the archive from turning sincere belief into falsely certain history."},{"title":"The Seat of the Mediator","purpose":"An observance in which a trusted intermediary carries a request between a person and a community, Spiritual House, or spiritual authority.","who":"The petitioner, a mediator accepted by them, and the recipient if participation is possible.","materials":"A written request and a record of what the mediator is authorised to disclose.","procedure":"The mediator confirms the request’s wording and boundaries, delivers it without embellishment, and reports any response accurately. Private details are not shared beyond the permission granted.","signs":"The sign of completion is that the request was conveyed and the response, if any, accurately returned.","variants":"The mediator may be a spiritual office-holder or a trusted community member, depending on the Spiritual House.","failure":"A mediator who cannot remain neutral must disclose the conflict and step aside.","consequences":"The ritual cannot compel an answer or guarantee reconciliation."},{"title":"The Unanswered Bell","purpose":"A closing observance for an invocation that produces no clear response.","who":"The original participants and the Keeper who records the outcome.","materials":"A bell or another ordinary signal, and the invocation record.","procedure":"The Keeper sounds the signal once to mark the end of the waiting period. Participants state whether they observed anything, then leave without being asked to manufacture a meaning. The record is closed as unanswered or uncertain.","signs":"The absence of a clear response is itself the recorded result.","variants":"In quiet Spiritual Houses, a hand gesture replaces the bell.","failure":"Repeated calls are not made merely because participants dislike uncertainty.","consequences":"The archive protects against escalating claims after silence. A future attempt requires a new purpose and fresh consent."}],"passage":[{"title":"The Washing Before Entry","purpose":"A preparation rite for entering a recognised stage of training, service, or sacred duty.","who":"The person entering the stage and an authorised Keeper; family or community witnesses attend only if invited.","materials":"Clean water, a towel, and a written statement of the responsibilities being accepted.","procedure":"The participant washes their hands or face as a symbolic transition. The Keeper explains the duties and limits of the new stage. The participant repeats the responsibilities in their own words and may ask for clarification before accepting.","signs":"The rite is complete when consent and understanding are clear, not merely when the washing is finished.","variants":"Some Spiritual Houses use water, others use a clean cloth or another locally meaningful symbol.","failure":"If the participant does not understand or freely accept the duty, the rite is postponed.","consequences":"The person receives a new status only after the relevant community record is updated."},{"title":"The Threshold Witness","purpose":"A rite marking the moment someone leaves one recognised status and enters another.","who":"The person undergoing the transition, a Keeper, and witnesses chosen by the person.","materials":"Two markers representing the former and new status, plus a dated record.","procedure":"The former status is named and honoured without ridicule. The person then crosses the marked threshold and states what they understand to be changing. The Keeper records both what is relinquished and what remains.","signs":"Witnesses confirm that the transition was acknowledged; they do not dictate the participant’s inner feelings.","variants":"The threshold may be a literal doorway, a path, or a line drawn on a page.","failure":"A transition may be delayed when the person is not ready or a required condition has not been met.","consequences":"The archive records the transition as complete, deferred, or disputed according to evidence."},{"title":"The Leave-Taking Cup","purpose":"A departure observance for a person leaving a household, school of practice, or long-held role.","who":"The departing person and those they wish to include.","materials":"A shared cup of water or another ordinary drink, with a record of any unfinished responsibilities.","procedure":"Participants name one thing they received and one thing they leave behind. The departing person may offer a final message, then returns any entrusted objects and receives their own belongings. Sharing the drink is optional.","signs":"The rite marks a clear ending and a practical handover. It does not require everyone to feel reconciled.","variants":"A private departure may be conducted with one witness; a public departure may include the whole Spiritual House.","failure":"No one is required to speak publicly or disclose private reasons for leaving.","consequences":"The person’s departure is recorded without erasing their prior contributions."},{"title":"The Recognition of Arrival","purpose":"A welcoming rite for a person entering a new community or arriving after a long absence.","who":"The newcomer and a host or Keeper; participation is voluntary.","materials":"A place at the table, a name card or token, and an explanation of community customs.","procedure":"The host names the place being offered and explains relevant rules plainly. The newcomer is invited to state their preferred form of address and any boundaries they wish respected. The token is offered, not imposed.","signs":"The sign is informed welcome: the newcomer knows whom to ask for help and what expectations apply.","variants":"Some Spiritual Houses share a meal; others use a short greeting or a tour of the space.","failure":"If the community cannot safely accommodate a need, it must say so honestly rather than promise what it cannot provide.","consequences":"The record marks the date of arrival and any agreed support, with privacy respected."},{"title":"The Interrupted Crossing","purpose":"A formal record for a passage that was postponed, interrupted, or left incomplete.","who":"The participant and a Keeper who was not solely responsible for arranging the passage.","materials":"The original plan and a note of the reason for interruption, where the participant wishes to record it.","procedure":"The Keeper marks the point reached, what remains undone, and whether any part must be repeated. The participant is asked what support or time they need. No one declares the passage failed merely because it paused.","signs":"A clear status—paused, resumed, abandoned, or unresolved—is the sign of a sound record.","variants":"Spiritual Houses differ on whether a partially completed rite can be resumed or must begin again.","failure":"The participant may withdraw from the process. The archive does not treat withdrawal as moral failure.","consequences":"Any status or responsibility dependent on completion remains unchanged until the relevant requirements are met."},{"title":"The Second Naming","purpose":"A rite recognising a change in public role, chosen title, or recognised identity within the Keeper community.","who":"The person being named and the authority responsible for the relevant register; witnesses are included by consent.","materials":"The existing record, the requested name or title, and a statement of what does and does not change.","procedure":"The Keeper confirms the person’s chosen form and explains any administrative consequences. The new name is spoken if the person wishes, entered into the record, and linked to the former entry only where necessary.","signs":"Completion is shown by consistent use of the new name in the community record.","variants":"Some Spiritual Houses make the rite private; others use a public announcement.","failure":"A request is not delayed for spectacle, and a former name is not announced against the person’s wishes.","consequences":"The archive preserves continuity without treating a change of name as a change in the person’s worth."}],"reconciliation":[{"title":"The Plain Account","purpose":"A reconciliation observance for people who wish to address a disagreement by separating facts, interpretations, and unanswered questions.","who":"The people directly involved and a mediator accepted by all; participation is voluntary.","materials":"A shared record divided into what each person observed, what each inferred, and what each still needs to know.","procedure":"Each person speaks without interruption for an agreed time. The mediator records statements in the speaker’s own terms and asks for corrections. No apology or agreement is demanded before everyone has been heard.","signs":"Completion means that the accounts have been heard accurately, not that all parties agree.","variants":"Some Spiritual Houses use a written exchange when face-to-face discussion is not suitable.","failure":"The ritual is not used where a joint meeting would place someone at risk; separate support takes priority.","consequences":"The record may identify a next step, a boundary, or a decision not to continue contact."},{"title":"The Mending Cord","purpose":"A symbolic ritual for a bond that its participants wish to repair after a rupture.","who":"All people whose participation is symbolised by the cord must consent.","materials":"A cord with a visible join and a written statement of what each participant is willing to do differently.","procedure":"The participants examine the broken cord and name what repair would require in practical terms. If they agree, the join is tied; if not, the cord remains separated and the disagreement is recorded honestly.","signs":"A repaired cord signifies an agreement to attempt repair, not proof that trust has already returned.","variants":"A person may choose a written symbol instead of a shared object.","failure":"No one is pressured to forgive, reunite, or resume a relationship.","consequences":"The participants may set a review date and may end the process if the agreement is not honoured."},{"title":"The Unbinding of Consent","purpose":"A release observance for a promise, role, or spiritual commitment that a person is permitted to leave.","who":"The person seeking release and the Keeper authorised to amend the original record.","materials":"The original promise or bond record and a statement of the terms for release.","procedure":"The Keeper reads the original terms, explains any legitimate obligations that remain, and asks the person to state their decision. The record is amended to show what ends and what continues. No dramatic gesture is required.","signs":"A clear and properly recorded release is the sign of completion.","variants":"Some Spiritual Houses require witnesses for public offices; private commitments may have different rules.","failure":"A Keeper may not claim that a person is spiritually trapped simply because they wish to leave.","consequences":"The person is no longer held to the released commitment, though ordinary responsibilities are settled transparently."},{"title":"The Clearing of the Table","purpose":"A communal observance for bringing a shared dispute to a defined pause or conclusion.","who":"The people affected and a facilitator; a shared meal is optional and never a condition of forgiveness.","materials":"A table, a written summary of decisions, and a list of outstanding matters.","procedure":"The parties place the issue—not personal tokens—at the centre of the table as a symbol. They agree what has been decided, what remains open, and when discussion will resume or end. The summary is read back for accuracy.","signs":"The sign is a shared understanding of the next step, even where feelings remain unresolved.","variants":"The table may be literal or represented by a page in a private mediation.","failure":"No participant is forced to share food, touch another person, or make a public apology.","consequences":"The written agreement can be reviewed if circumstances change. The ritual does not erase harm or prevent lawful accountability."},{"title":"The Record of Lingering Influence","purpose":"A review for a situation in which an old vow, grievance, or spiritual event is believed to continue affecting present decisions.","who":"A Keeper trained to document testimony and the person requesting the review.","materials":"Prior records, dated observations, and a separate list of present-day concerns.","procedure":"The Keeper compares the old account with current evidence and asks which effects are directly observable. Any symbolic interpretation is recorded separately. The participant identifies which practical issue they want to address first.","signs":"A more precise account of the continuing problem is the desired result; no supernatural cause is presumed.","variants":"A second Keeper may review the entry when the original Keeper has a conflict of interest.","failure":"The review cannot be used to assign blame without evidence or to discourage ordinary professional support.","consequences":"The archive may recommend a new boundary, a mediated conversation, or simply preserving uncertainty."},{"title":"The Closing of the Matter","purpose":"A final observance for formally closing a dispute or spiritual concern after its agreed process has ended.","who":"The person or group responsible for the record and any participants who wish to attend.","materials":"The original file, a closing statement, and a method for reopening the matter if new evidence appears.","procedure":"The Keeper summarises what was established, what actions were taken, and what remains unknown. Participants may offer a final statement or decline. The file is dated and closed, with conditions for reopening stated plainly.","signs":"The sign is an accurate closure record, not universal forgiveness or emotional resolution.","variants":"A communal matter may close in public; sensitive matters remain private.","failure":"A closing ritual does not block someone from seeking help or reporting new harm.","consequences":"The matter is archived as resolved, partly resolved, or unresolved. The distinction is retained."}],"forbidden":[{"title":"The Bloodbound Succession","purpose":"A succession observance used when a spiritual claim must pass from one bearer to another and ordinary recognition is considered insufficient.","who":"The person surrendering the claim, the intended successor, and the authority whose claim is being transferred. The Keepers preserve the account and witness the terms; they do not perform the observance.","materials":"The surviving accounts name a succession record and a blood-marked token, but disagree on the token’s origin and significance. No single form is accepted across all Spiritual Houses.","procedure":"The terms of succession are declared before the claim is transferred. The record distinguishes what each party intended from what the witnesses later believed had occurred. Some accounts describe the claim as passing cleanly; others preserve signs that the former bearer remained bound.","signs":"A recognised transfer is not established by the declaration alone. The strongest records identify a change in the entity’s claim, the successor’s obligations, and the former bearer’s status.","variants":"Some traditions treat blood as witness to a lineage; others hold that it marks the price paid. The archive does not collapse these interpretations into one rule.","failure":"A failed succession may leave both bearers claimed, neither recognised, or the claim attached to a third party. The surviving accounts do not agree on which outcome is most dangerous.","consequences":"The succession can alter inheritance, spiritual allegiance, and the obligations carried by descendants. In the gravest accounts, the price is not borne by the successor alone.","cost":"The cost may be a lasting obligation, the loss of a former spiritual standing, or a life given in payment. The archive records no universal price."},{"title":"The Covenant of the Living Seal","purpose":"A binding covenant between a living person and a spiritual entity, establishing a claim that ordinary promises cannot dissolve.","who":"The person entering the covenant and the spiritual entity to which the claim is made. Witnesses may preserve the terms, but witnessing does not grant them authority over the bond.","materials":"The oldest accounts refer to a covenant text or spoken terms preserved by witnesses. Later records disagree on whether a physical seal is necessary or merely customary.","procedure":"The obligations are named before the covenant is accepted. The record must distinguish the duties freely accepted, the duties imposed by the entity, and the consequences later attributed to breach. A surviving copy of the terms is not proof that every clause was understood.","signs":"Accounts describe a persistent spiritual claim, recurring obligations, or an entity’s continued recognition of the bound person. Such signs may be disputed, particularly when the entity does not answer directly.","variants":"Some covenants bind only the bearer; others are said to reach a household, office, or line of descent. The archive treats inherited claims as a separate matter unless evidence connects them.","failure":"A covenant may be accepted incompletely, interpreted differently by the two parties, or remain active after the bearer believes it ended. No surviving account establishes a universally reliable means of withdrawal.","consequences":"Breach may bring loss of standing, the return of a withheld claim, or a consequence imposed on something the bearer was bound to protect. The entity’s claim does not become harmless merely because the bearer’s loyalties change.","cost":"The price may be years of service, the surrender of a freedom, or the bearer’s life. Some accounts describe costs that were not disclosed until after the covenant took hold."},{"title":"The Severance of Names","purpose":"A forbidden attempt to sever a person from a spiritual entity’s claim when ordinary release has failed or is believed impossible.","who":"The person seeking severance and those authorised by the relevant tradition to recognise its result. The Keepers record the attempt and its aftermath; they are not presumed to conduct it.","materials":"Accounts mention the original name by which the claim was established and a record of the bond’s terms. Other details differ too greatly to establish a universal form.","procedure":"The claim is identified, its origin examined, and the intended separation declared. The record then follows what was actually lost or released rather than assuming that a declared severance has succeeded.","signs":"Some accounts report that the entity no longer recognises the person. Others describe a silence that cannot be distinguished from withdrawal, concealment, or a delayed consequence.","variants":"In some traditions the name represents the person’s place in the bond; in others it represents the entity’s right to call them. The difference is considered consequential.","failure":"The bond may remain, divide into separate claims, or return in a changed form. Several records warn that severance can affect a person’s own memory of the obligation without ending it.","consequences":"Successful severance may leave the person free of the original claim but not free of its consequences. Lost identity, damaged spiritual capacity, and claims transferred to another bearer appear in disputed accounts.","cost":"The cost may be memory, a former name, spiritual ability, or the life of the person seeking release. No record establishes that the severance can be reversed."},{"title":"The Unanswered Offering","purpose":"An offering made when a spiritual entity is sought for intervention, judgement, or a response that ordinary invocation has failed to obtain.","who":"The petitioner and any witnesses permitted by the tradition. The archive records the intended recipient separately from the identity, if known, of anything that appears to answer.","materials":"The surviving accounts describe an offering whose meaning is established by the petitioner’s vow. In some accounts blood is given as the price; in others, something irreplaceable is surrendered. No single offering is common to every tradition.","procedure":"The petitioner states the request and the price they believe they have agreed to pay. The account preserves what was promised, what was given, and whether any response was observed. Silence is recorded as an outcome, not proof that the offering was refused.","signs":"A response may be direct, delayed, or disputed. The absence of an answer does not establish that the offering went unnoticed, and a later event is not automatically treated as fulfilment.","variants":"Some traditions hold that an entity may refuse the request but still claim the offering. Others believe the recipient may remain unknown. The archive preserves both positions.","failure":"The request may go unanswered, be answered by an unintended entity, or produce a consequence unrelated to the petitioner’s stated wish.","consequences":"The offering may bind the petitioner to a debt without granting the requested intervention. The most feared accounts describe a price accepted in full while the plea itself remains unanswered.","cost":"Certain accounts explicitly describe blood sacrifice and the loss of a life. These are preserved as grave precedents, not as evidence that every offering demands the same price."},{"title":"The Vigil of the Unclaimed Dead","purpose":"An observance concerning the dead whose spiritual obligations remain unresolved and whose claims may still reach the living.","who":"The living witness, the keepers of the relevant death record, and any persons named in the unresolved obligation. The Keeper of the archive records testimony but does not stand in for the witness.","materials":"The account of the dead, the names of those believed to remain bound, and any surviving terms of the obligation. Many entries are fragmentary.","procedure":"The witness remains present while the unresolved claim is named and the surviving evidence is read. The purpose is to establish what remains owed, not to presume that the dead have answered or consented to release.","signs":"Some accounts describe recognition by the dead; others record no answer, contradictory testimony, or a change in the living witness’s own status.","variants":"The length and manner of the vigil differ between Spiritual Houses. The archive does not present any duration as universally safe or sufficient.","failure":"The claim may remain unsettled, attach itself to the witness, or be mistaken for a different obligation. Later accounts sometimes contradict the original record.","consequences":"A witness may leave with an obligation that was not theirs at the beginning. The oldest disputed accounts describe a life lost when the dead’s claim could not be resolved before the vigil ended.","cost":"The price may be a lasting duty, the transfer of a claim, or the witness’s life. No account proves that the dead will accept the proposed settlement."},{"title":"The Rite Without Return","purpose":"A name given to observances from which the original condition cannot be restored, undertaken only when a lasting change is intended or believed unavoidable.","who":"Those who accept the consequence and the authority that recognises the act. The Keepers preserve accounts of precedent, dispute, and outcome rather than directing the observance.","materials":"No single set of materials defines the rite. The surviving records classify it by the irreversibility of its cost, not by a shared outward form.","procedure":"The record identifies the condition before the act, the intended change, the price understood by those involved, and the condition that remained afterward. Accounts that omit one of these distinctions are marked incomplete.","signs":"The defining sign is an irreversible change recognised by later evidence: a bond that cannot be restored, a succession that cannot be recalled, an identity that no longer answers, or a life that has been surrendered.","variants":"The term covers several distinct traditions. It is not a single rite, and the archive does not assume that one precedent explains another.","failure":"An irreversible cost may be paid without the intended change occurring. The archive preserves such cases as warnings against confusing sacrifice with control.","consequences":"Some rites alter a spiritual claim; others determine succession, remove a person from an entity’s reach, or bind a future generation. Their consequences may outlive every witness who understood the original terms.","cost":"In the gravest accounts, the cost is the practitioner’s life. Other rites demand permanent surrender of memory, name, spiritual freedom, or the future of another person. There is no general means of undoing the price."}]};
+let current='home';
+const app=document.getElementById('app'), nav=document.getElementById('mainNav');
+function makeNav(){nav.innerHTML='<button data-page="home" class="'+(current==='home'?'active':'')+'">The Register</button>'+categories.map(c=>'<button data-page="'+c.id+'" class="'+(current===c.id?'active':'')+'">'+c.num+'. '+c.name+'</button>').join('');}
+function home(){return `<section class="hero"><div><div class="eyebrow">Keepers' Compilation · 36 Records Preserved</div><h1>The Book of<br>Observances</h1><p class="dek">A record of spiritual practices gathered through observation and preserved across centuries.</p></div><aside class="seal"><div class="seal-kicker">THE KEEPER'S REGISTER</div><div class="seal-number">VI</div><strong>Six divisions.<br>Many unfinished accounts.</strong><p>What was preserved is not always what was understood.</p></aside></section>
+<section class="intro-grid"><div><div class="eyebrow">On this record</div><h2>What has been kept</h2><p>The practices recorded herein were gathered through observation and preserved in the writings of the Keepers across centuries. Within this compilation are set down the observances of the Spiritual Houses, the manners of their performance, and the purposes for which they are undertaken. The entries preserve not only what a ritual is meant to accomplish, but also who may perform it, how it is recorded, and what remains uncertain.</p><p>These writings were gathered by those who came before, their names unrecorded, their work preserved. The compilation preserves thirty-six observance records arranged under six divisions. Each account is kept with its limits, variations, and uncertain outcomes intact.</p></div><div><div class="eyebrow">How it is arranged</div><h2>By purpose, not by origin</h2><p>The register is divided according to the purpose an observance is meant to serve. Practices found in one Spiritual House may also be known elsewhere; their presence in a division does not imply that the practice belongs exclusively to a single people or place.</p><p>Each account is preserved according to what was observed or reported. Known variations are distinguished where the record allows it. Matters not established by the surviving accounts remain uncertain.</p><div class="notice"><strong>A note on the limits of the record</strong>The absence of an account is not proof that a practice does not exist. Nor does a recorded intention guarantee a particular outcome.</div></div></section>
+<section><div class="section-head"><div><div class="eyebrow">The register</div><h2>Divisions of observance</h2></div><span class="count">Six divisions · 36 observance records</span></div><div class="category-list">${categories.map(c=>`<article class="category"><div class="num">${c.num}</div><div><h3><a href="#${c.id}" data-page="${c.id}">${c.name}</a></h3><p class="description">${c.short} ${c.dek}</p><a class="text-link" href="#${c.id}" data-page="${c.id}">Enter division</a></div><div class="meta">Division ${c.num}<br>Subject register</div></article>`).join('')}</div></section>
+<section class="closing"><blockquote>“Thus stands the record, as it was left to those who would come after.”</blockquote><div><div class="eyebrow">The Keeper's Archive</div><h2>What is known, and what is not</h2><p>The Keepers’ task was to observe and preserve, not to complete every account. Some practices are recorded in detail; others survive only in fragments. A failure may be known, a success may be reported, or no outcome may have been witnessed at all.</p><p class="smallnote">The record retains these distinctions. It does not supply certainty where none was preserved.</p></div></section>`}
+function esc(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function categoryPage(c){const recs=observanceRecords[c.id]||[];return `<section class="page-head"><div><div class="eyebrow">Division ${c.num} · The Book of Observances</div><h1>${c.name}</h1><p class="dek">${c.dek}</p></div><aside class="page-index"><b>${c.num}</b><span>Division of the<br>Keeper's register</span></aside></section>
+<div class="page-body"><aside class="side-index"><div class="label">Within this division</div><nav>${[['overview','Purpose of the division'],['subjects','Subject register'],['limits','Limits of the record']].map(([id,label])=>`<a href="#${id}">${label}</a>`).join('')}</nav><a class="back" href="#home" data-page="home">Return to register</a></aside><div class="page-content">
+<section class="content-section" id="overview"><div class="eyebrow">Purpose of the division</div><h2>On ${c.name.toLowerCase()}</h2><p>${c.intro}</p><p>${c.scope}</p><div class="notice"><strong>On the Keeper's method</strong>The archive distinguishes intention, witness testimony, and established outcome. A claim repeated in many accounts is not, by repetition alone, established.</div></section>
+<section class="content-section" id="subjects"><div class="eyebrow">Subject register</div><h2>Observances and surviving accounts</h2><p class="smallnote">Expand an entry to read its record.</p><div class="register">${c.subjects.map((s,i)=>{const r=recs[i]||{};const id=c.id+'-'+i;return `<article class="record-row"><div class="record-no">${String(i+1).padStart(2,'0')}</div><div><h3>${esc(r.title||s[0])}</h3><p>${esc(r.purpose||s[1])}</p><button aria-expanded="false" data-detail="${id}">Open observance record</button></div><div class="status">${esc(s[0])}<br>Keeper's entry</div></article><div class="record-detail" id="detail-${id}"><h4>${esc(r.title||s[0])}</h4><p>${esc(r.purpose||s[1])}</p><dl><dt>Materials and requirements</dt><dd>${esc(r.materials||'No special material is required unless a local record specifies otherwise.')}</dd><dt>Procedure</dt><dd>${esc(r.procedure||'The surviving account does not preserve a full procedure.')}</dd><dt>Signs and outcomes</dt><dd>${esc(r.signs||'The outcome is recorded as uncertain unless supported by testimony.')}</dd><dt>Variations between Spiritual Houses</dt><dd>${esc(r.variants||'No universal form is established.')}</dd><dt>Failure and interruption</dt><dd>${esc(r.failure||'Incomplete results are recorded without assigning blame.')}</dd><dt>Consequences and limits</dt><dd>${esc(r.consequences||'The entry makes no guarantee of a particular result.')}</dd><dt>Cost of the observance</dt><dd>${esc(r.cost||'No separate cost is preserved in this account.')}</dd></dl></div>`}).join('')}</div></section>
+<section class="content-section" id="limits"><div class="eyebrow">The surviving evidence</div><h2>Limits of the record</h2><p>${c.note}</p><div class="notice"><strong>On incomplete accounts</strong>Where a detail was not observed or no account survives, the record states that the matter is unknown. A report of success, a report of failure, and an absence of testimony remain distinct kinds of evidence.</div><p class="smallnote">Individual entries preserve materials, procedure, signs, variations, failure, and consequences where the surviving record establishes them. No entry is treated as universally effective, and consent or ordinary safety is never overridden by ritual authority.</p></section>
+</div></div>`}
+function updateDock(){const idx=categories.findIndex(c=>c.id===current);const prev=document.getElementById('prevPage');const next=document.getElementById('nextPage');if(!prev||!next)return;if(idx<0){prev.textContent='Beginning';prev.disabled=true;prev.removeAttribute('data-page');next.textContent='First division →';next.disabled=false;next.dataset.page=categories[0].id;}else{prev.disabled=false;if(idx===0){prev.textContent='← The Register';prev.dataset.page='home';}else{prev.textContent='← Previous';prev.dataset.page=categories[idx-1].id;}if(idx===categories.length-1){next.textContent='End of the book';next.disabled=true;next.removeAttribute('data-page');}else{next.textContent='Next division →';next.dataset.page=categories[idx+1].id;}}}
+function render(page){current=page;makeNav();app.innerHTML=page==='home'?home():categoryPage(categories.find(c=>c.id===page)||categories[0]);updateDock();app.focus({preventScroll:true});window.scrollTo({top:0,behavior:'smooth'});}
+document.addEventListener('click',e=>{if(e.target.closest('#toTop')){window.scrollTo({top:0,behavior:'smooth'});return;}const p=e.target.closest('[data-page]');if(p){e.preventDefault();render(p.dataset.page);history.replaceState(null,'','#'+p.dataset.page);return;}const d=e.target.closest('[data-detail]');if(d){const el=document.getElementById('detail-'+d.dataset.detail);const open=el.classList.toggle('open');d.setAttribute('aria-expanded',String(open));d.textContent=open?'Close subject note':'Open subject note';}});
+window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(id==='home'||categories.some(c=>c.id===id))render(id||'home')});
+render(categories.some(c=>c.id===location.hash.slice(1))?location.hash.slice(1):'home');
+</script>
+</body>
+</html>
